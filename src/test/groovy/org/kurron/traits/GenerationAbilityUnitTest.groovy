@@ -97,10 +97,10 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
 
         expect:
         def generated = randomDateTime( direction, 100 )
-        expected( generated )
+        expectation( generated )
 
         where:
-        direction                          || expected
+        direction                          || expectation
         GenerationAbility.Direction.Future || { it > LocalDateTime.now() }
         GenerationAbility.Direction.Past   || { it < LocalDateTime.now() }
     }
