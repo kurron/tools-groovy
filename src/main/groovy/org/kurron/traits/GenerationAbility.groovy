@@ -16,6 +16,8 @@
 
 package org.kurron.traits
 
+import groovy.transform.CompileDynamic
+
 import java.util.concurrent.ThreadLocalRandom
 
 /**
@@ -37,7 +39,7 @@ trait GenerationAbility {
      * @return random integer.
      */
     int randomPositiveInteger() {
-        ThreadLocalRandom.current().nextInt( Integer.MAX_VALUE )
+        randomInteger( 0, Integer.MAX_VALUE )
     }
 
     /**
@@ -89,11 +91,12 @@ trait GenerationAbility {
     //TODO: random date
 
     /**
-     * Randomly selects an element from a list.  This is not typed so pay extra attention when using it.
+     * Randomly selects an element from a list. Signature is untyped so be careful.
      * @param list to select an element from.
      * @return randomly selected element.
      */
-    def randomListElement( def list ) {
-        list[ThreadLocalRandom.current().nextInt( list.size() )]
+    @CompileDynamic
+    def randomElement( def list ) {
+        list[ ThreadLocalRandom.current().nextInt( list.size() ) ]
     }
 }

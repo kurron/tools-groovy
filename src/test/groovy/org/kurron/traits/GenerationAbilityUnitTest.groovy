@@ -71,4 +71,14 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         def percentageOff = (delta / values.size() ) * 100
         percentageOff < 1 // a 1% epsilon is ok
     }
+
+    def 'exercise random list element'() {
+        given: 'a collection of random values'
+        def values = (1..1000).collect{ randomHexString() }
+
+        expect: 'a unique selection of elements'
+        def selected = (1..10).collect{ randomElement( values ) }
+        selected.unique( false ) == selected
+
+    }
 }
