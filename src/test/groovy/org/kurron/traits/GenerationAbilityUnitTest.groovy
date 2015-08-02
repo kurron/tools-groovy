@@ -59,4 +59,16 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         def generatedSizes = buffers.collect { it.size() }.sort()
         sizes.sort() == generatedSizes
     }
+
+    def 'exercise random boolean'() {
+        given: 'a collection of random values'
+        def values = (1..100000).collect{ randomBoolean() }
+
+        expect: 'about half are true and half are false'
+        def positive = values.findAll { it }.size()
+        def negative = values.findAll { !it }.size()
+        def delta = (positive - negative).abs()
+        def percentageOff = (delta / values.size() ) * 100
+        percentageOff < 1 // a 1% epsilon is ok
+    }
 }
