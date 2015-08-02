@@ -29,7 +29,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
 
     def 'exercise 0 arity method'( Closure sut ) {
         given: 'a collection of random data'
-        def data = (1..10000).collect( sut )
+        def data = generateData( 10000, sut )
 
         expect: 'no duplicates are found'
         data.unique( false ) == data
@@ -41,7 +41,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
 
     def 'exercise ranged random integers'() {
         given: 'a collection of random data'
-        def data = (1..10000).collect { randomInteger( -100, 100 ) }
+        def data = generateData( 10000 ) { randomInteger( -100, 100 ) }
 
         expect: 'no data point exceeds the bounds'
         data.every { (it >= -100) && (it < 100) }
@@ -49,7 +49,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
 
     def 'exercise random byte arrays'() {
         given: 'a collection of random buffer sizes'
-        def sizes = (1..1000).collect { randomInteger( 1, 256 ) }
+        def sizes = generateData( 10000 ) { randomInteger( 1, 256 ) } as List<Integer>
 
         when: 'random buffers are generated'
         def buffers = sizes.collect { randomByteArray( it ) }.sort()
@@ -61,7 +61,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
 
     def 'exercise random boolean'() {
         given: 'a collection of random values'
-        def values = (1..100000).collect { randomBoolean() }
+        def values = generateData( 100000 ) { randomBoolean() }
 
         expect: 'about half are true and half are false'
         def positive = values.findAll { it }.size()
@@ -73,7 +73,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
 
     def 'exercise random list element'() {
         given: 'a collection of random values'
-        def values = (1..1000).collect { randomHexString() }
+        def values = generateData( 1000 ) { randomHexString() }
 
         expect: 'a unique selection of elements'
         def selected = (1..10).collect { randomElement( values ) }

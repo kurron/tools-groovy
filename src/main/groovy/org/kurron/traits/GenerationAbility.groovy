@@ -95,4 +95,14 @@ trait GenerationAbility {
     Object randomElement( List list ) {
         list[ ThreadLocalRandom.current().nextInt( list.size() ) ]
     }
+
+    /**
+     * Generate a list of data points using the provided closure.
+     * @param size how many data points to generate.
+     * @param generator the data point generator to use.
+     * @return the list of generated data points
+     */
+    List generateData( int size, Closure generator ) {
+        (1..size).collect( generator )
+    }
 }
