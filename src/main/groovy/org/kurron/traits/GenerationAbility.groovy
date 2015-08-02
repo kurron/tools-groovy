@@ -15,8 +15,6 @@
  */
 package org.kurron.traits
 
-import groovy.transform.CompileDynamic
-
 import java.util.concurrent.ThreadLocalRandom
 
 /**
@@ -94,8 +92,7 @@ trait GenerationAbility {
      * @param list to select an element from.
      * @return randomly selected element.
      */
-    @CompileDynamic
-    def randomElement( def list ) {
+    Object randomElement( List list ) {
         list[ ThreadLocalRandom.current().nextInt( list.size() ) ]
     }
 }

@@ -55,7 +55,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         def buffers = sizes.collect { randomByteArray( it ) }.sort()
 
         then: 'each buffer is of the specified size'
-        def generatedSizes = buffers*.size.sort()
+        def generatedSizes = buffers.collect { it.size() }.sort()
         sizes.sort() == generatedSizes
     }
 
