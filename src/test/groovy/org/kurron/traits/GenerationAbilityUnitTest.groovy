@@ -93,7 +93,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         selected in values
     }
 
-    def 'exercise random date time using #direction'() {
+    def 'exercise random date time using #direction'( GenerationAbility.Direction direction, Closure expectation ) {
 
         expect:
         def generated = randomDateTime( direction, 100 )
@@ -101,7 +101,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
 
         where:
         direction                          || expectation
-        GenerationAbility.Direction.Future || { it > LocalDateTime.now() }
-        GenerationAbility.Direction.Past   || { it < LocalDateTime.now() }
+        GenerationAbility.Direction.FUTURE || { it > LocalDateTime.now() }
+        GenerationAbility.Direction.PAST   || { it < LocalDateTime.now() }
     }
 }

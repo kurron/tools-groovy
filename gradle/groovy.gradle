@@ -33,6 +33,17 @@ ext.sharedManifest = manifest {
     attributes( 'Implementation-Title': project.name, 'Implementation-Version': project.version )
 }
 
+test {
+    useJUnit {
+        includeCategories 'org.kurron.categories.UnitTest'
+    }
+    testLogging {
+        showStandardStreams = false
+        exceptionFormat = 'full'
+    }
+    reports.html.destination =  "$buildDir/reports/unitTests"
+}
+
 jar {
     manifest = project.manifest {
         from sharedManifest

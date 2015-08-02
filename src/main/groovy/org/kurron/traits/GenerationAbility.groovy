@@ -104,7 +104,8 @@ trait GenerationAbility {
         (1..size).collect( generator )
     }
 
-    static enum Direction { Future, Past }
+    static enum Direction { FUTURE, PAST
+    }
 
     /**
      * Generates a time point randomly offset from the current time point.
@@ -115,6 +116,6 @@ trait GenerationAbility {
     LocalDateTime randomDateTime( Direction direction, int magnitude ) {
         def now = LocalDateTime.now()
         def offset = randomInteger( 1, magnitude )
-        direction == Direction.Future ? now.plusDays( offset ) : now.minusDays( offset )
+        direction == Direction.FUTURE ? now.plusDays( offset ) : now.minusDays( offset )
     }
 }

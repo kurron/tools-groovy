@@ -343,10 +343,11 @@ ruleset {
     UnsafeArrayDeclaration
 
     // rulesets/serialization.xml
-    EnumCustomSerializationIgnored
-    SerialPersistentFields
-    SerialVersionUID
-    SerializableClassMustDefineSerialVersionUID
+    // NOTE: nobody does serialization anymore
+    //EnumCustomSerializationIgnored
+    //SerialPersistentFields
+    //SerialVersionUID
+    //SerializableClassMustDefineSerialVersionUID
 
     // rulesets/size.xml
 /*
