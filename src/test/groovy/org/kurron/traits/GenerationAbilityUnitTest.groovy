@@ -104,4 +104,20 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         GenerationAbility.Direction.FUTURE || { it > LocalDateTime.now() }
         GenerationAbility.Direction.PAST   || { it < LocalDateTime.now() }
     }
+
+    def 'exercise random URI'() {
+
+        expect: 'a URI with all pieces filled in'
+        def generated = randomURI()
+        with( generated ) {
+            scheme
+            userInfo
+            host
+            port
+            path
+            query
+            fragment
+        }
+    }
+
 }

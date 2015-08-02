@@ -118,4 +118,8 @@ trait GenerationAbility {
         def offset = randomInteger( 1, magnitude )
         direction == Direction.FUTURE ? now.plusDays( offset ) : now.minusDays( offset )
     }
+
+    URI randomURI() {
+        new URI( 'http', randomHexString(), randomHexString(), randomPositiveInteger(), "/${randomHexString()}", "key=${randomHexString()};x=1;y=2;z=3", randomHexString() )
+    }
 }
