@@ -15,6 +15,7 @@
  */
 package org.kurron.traits
 
+import java.time.LocalDateTime
 import java.util.concurrent.ThreadLocalRandom
 
 /**
@@ -84,9 +85,6 @@ trait GenerationAbility {
         Math.abs( ThreadLocalRandom.current().nextLong() )
     }
 
-    //TODO: random enum
-    //TODO: random date
-
     /**
      * Randomly selects an element from a list. Signature is untyped so be careful.
      * @param list to select an element from.
@@ -104,5 +102,19 @@ trait GenerationAbility {
      */
     List generateData( int size, Closure generator ) {
         (1..size).collect( generator )
+    }
+
+    static enum Direction { Future, Past }
+
+    /**
+     * Generates a time point randomly offset from the current time point.
+     * @param direction which direction to generate the point for, relative to now.
+     * @param magnitude how many days we are allowed to travel from the current time point.
+     * @return generated time point.
+     */
+    LocalDateTime randomDateTime( Direction direction, int magnitude ) {
+        def now = LocalDateTime.now()
+        def offset = randomInteger( 1, magnitude )
+        direction == Direction.Future ? now.plusDays( offset ) : now.minusDays( offset )
     }
 }

@@ -20,6 +20,8 @@ import org.kurron.categories.UnitTest
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import java.time.LocalDateTime
+
 /**
  * Unit-level test.
  */
@@ -78,5 +80,28 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         expect: 'a unique selection of elements'
         def selected = (1..10).collect { randomElement( values ) }
         selected.unique( false ) == selected
+    }
+
+    enum Colors { RED, GREEN, BLUE }
+
+    def 'exercise random enum'() {
+
+        expect: 'a selected element'
+        //TODO: grabbing and typing the list is painful.  Can we do better?
+        def values = Colors.values() as List<Colors>
+        def selected = randomElement( Colors.values() as List ) as Colors
+        selected in values
+    }
+
+    def 'exercise random date time using #direction'() {
+
+        expect:
+        def generated = randomDateTime( direction, 100 )
+        expected( generated )
+
+        where:
+        direction                          || expected
+        GenerationAbility.Direction.Future || { it > LocalDateTime.now() }
+        GenerationAbility.Direction.Past   || { it < LocalDateTime.now() }
     }
 }
