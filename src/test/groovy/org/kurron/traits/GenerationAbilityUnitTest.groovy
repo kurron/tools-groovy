@@ -19,22 +19,24 @@ package org.kurron.traits
 import org.junit.experimental.categories.Category
 import org.kurron.categories.UnitTest
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * Unit-level test.
  */
 @Category( UnitTest )
-class GenerationAbilityUnitTest extends Specification {
+@Unroll
+class GenerationAbilityUnitTest extends Specification implements GenerationAbility{
 
-    static class SubjectUnderTest implements GenerationAbility {}
-
-    def sut = new SubjectUnderTest()
-
-    def 'exercise randomHexString'() {
+    def 'exercise 0 arity method'( Closure sut ) {
         given: 'a collection of random data'
-        def data = (1..10000).collect { sut.randomHexString() }
+        def data = (1..10000).collect( sut )
 
         expect: 'no duplicates are found'
         data.unique( false ) == data
+
+        where:
+        // problems using method references, probably because it lives off a trait, eg this.&randomHexString
+        sut << [{ randomHexString() }, { randomPositiveInteger() }, { randomUUID() }, { randomLong() } ]
     }
 }
