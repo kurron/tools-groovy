@@ -39,4 +39,12 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         // problems using method references, probably because it lives off a trait, eg this.&randomHexString
         sut << [{ randomHexString() }, { randomPositiveInteger() }, { randomUUID() }, { randomLong() } ]
     }
+
+    def 'exercise ranged random integers'() {
+        given: 'a collection of random data'
+        def data = (1..10000).collect{ randomInteger( -100, 100 ) }
+
+        expect: 'do data point exceeds the bounds'
+        data.every { (it >= -100) && (it < 100) }
+    }
 }

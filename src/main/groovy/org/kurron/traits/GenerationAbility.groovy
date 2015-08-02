@@ -29,7 +29,7 @@ trait GenerationAbility {
      * @return hex string of the random number.
      */
     String randomHexString() {
-        Integer.toHexString( ThreadLocalRandom.current().nextInt( Integer.MAX_VALUE ) ).toUpperCase()
+        Integer.toHexString( randomPositiveInteger() ).toUpperCase()
     }
 
     /**
