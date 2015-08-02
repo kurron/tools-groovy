@@ -44,7 +44,19 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         given: 'a collection of random data'
         def data = (1..10000).collect{ randomInteger( -100, 100 ) }
 
-        expect: 'do data point exceeds the bounds'
+        expect: 'no data point exceeds the bounds'
         data.every { (it >= -100) && (it < 100) }
+    }
+
+    def 'exercise random byte arrays'() {
+        given: 'a collection of random buffer sizes'
+        def sizes = (1..1000).collect{ randomInteger( 1, 256 ) }
+
+        when: 'random buffers are generated'
+        def buffers = sizes.collect { randomByteArray( it ) }.sort()
+
+        then: 'each buffer is of the specified size'
+        def generatedSizes = buffers.collect { it.size() }.sort()
+        sizes.sort() == generatedSizes
     }
 }
