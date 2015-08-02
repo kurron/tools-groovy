@@ -16,4 +16,8 @@
 
 repositories {
     jcenter()
+    maven {
+        name = 'kurron'
+        url = 'http://dl.bintray.com/kurron/maven'
+    }
 }
