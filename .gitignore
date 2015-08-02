@@ -1,0 +1,8 @@
+build
+.gradle
+docker/artifacts
+.idea/workspace.xml
+.settings/
+.classpath
+.project
+/eclipse/
