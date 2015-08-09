@@ -63,6 +63,17 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         DigestUtils.sha256Hex( data ) == hash
     }
 
+    def 'exercise SHA-384 string'() {
+
+        when: 'enhanced method is applied'
+        def hash = use( ByteArrayEnhancements ) { ->
+            data.toSha384String()
+        }
+
+        then: 'the expected digest is generated'
+        DigestUtils.sha384Hex( data ) == hash
+    }
+
     def 'exercise SHA-512 string'() {
 
         when: 'enhanced method is applied'

@@ -51,6 +51,15 @@ class ByteArrayEnhancements {
     }
 
     /**
+     * Transforms the byte array in a hex representation of the buffer's SHA-384 hash.
+     * @param receiver the buffer to transform.
+     * @return hex string of the hash.
+     */
+    static String toSha384String( byte[] receiver ) {
+        DigestUtils.sha384Hex( receiver )
+    }
+
+    /**
      * Transforms the byte array in a hex representation of the buffer's SHA-512 hash.
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
