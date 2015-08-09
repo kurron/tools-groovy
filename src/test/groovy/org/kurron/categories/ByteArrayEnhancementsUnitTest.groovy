@@ -16,6 +16,7 @@
 package org.kurron.categories
 
 import org.apache.commons.codec.digest.DigestUtils
+import org.apache.commons.codec.digest.HmacUtils
 import org.junit.experimental.categories.Category
 import org.kurron.traits.GenerationAbility
 import spock.lang.Specification
@@ -29,6 +30,7 @@ import spock.lang.Unroll
 class ByteArrayEnhancementsUnitTest extends Specification implements GenerationAbility {
 
     def data = randomByteArray( 128 )
+    def key = randomByteArray( 128 )
 
     def 'exercise MD5 string'() {
 
@@ -83,5 +85,16 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         then: 'the expected digest is generated'
         DigestUtils.sha512Hex( data ) == hash
+    }
+
+    def 'exercise SHA-512 HMAC'() {
+
+        when: 'enhanced method is applied'
+        def mac = use( ByteArrayEnhancements ) { ->
+            data.toSha512Mac( key )
+        }
+
+        then: 'the expected authentication code is generated'
+        HmacUtils.hmacSha512Hex( key, data ) == mac
     }
 }

@@ -17,6 +17,7 @@
 package org.kurron.categories
 
 import org.apache.commons.codec.digest.DigestUtils
+import org.apache.commons.codec.digest.HmacUtils
 
 /**
  * Convenience methods that can be added to any byte array.
@@ -24,7 +25,7 @@ import org.apache.commons.codec.digest.DigestUtils
 class ByteArrayEnhancements {
 
     /**
-     * Transforms the byte array in a hex representation of the buffer's MD5 hash.
+     * Transforms the byte array into a hex representation of the buffer's MD5 hash.
      * @param receiver the buffer to transform.
      * @return 32 character hex string of the hash.
      */
@@ -33,7 +34,7 @@ class ByteArrayEnhancements {
     }
 
     /**
-     * Transforms the byte array in a hex representation of the buffer's SHA-1 hash.
+     * Transforms the byte array into a hex representation of the buffer's SHA-1 hash.
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
@@ -42,7 +43,7 @@ class ByteArrayEnhancements {
     }
 
     /**
-     * Transforms the byte array in a hex representation of the buffer's SHA-256 hash.
+     * Transforms the byte array into a hex representation of the buffer's SHA-256 hash.
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
@@ -51,7 +52,7 @@ class ByteArrayEnhancements {
     }
 
     /**
-     * Transforms the byte array in a hex representation of the buffer's SHA-384 hash.
+     * Transforms the byte array into a hex representation of the buffer's SHA-384 hash.
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
@@ -60,11 +61,21 @@ class ByteArrayEnhancements {
     }
 
     /**
-     * Transforms the byte array in a hex representation of the buffer's SHA-512 hash.
+     * Transforms the byte array into a hex representation of the buffer's SHA-512 hash.
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
     static String toSha512( byte[] receiver ) {
         DigestUtils.sha512Hex( receiver )
+    }
+
+    /**
+     * Transforms the byte array into a hex representation of the buffer's SHA-512 HMAC.
+     * @param receiver the buffer to transform.
+     * @param key the private key to use in the transformation.
+     * @return hex string of the HMAC.
+     */
+    static String toSha512Mac( byte[] receiver, byte[] key ) {
+        HmacUtils.hmacSha512Hex( key, receiver )
     }
 }
