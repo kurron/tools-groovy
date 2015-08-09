@@ -34,7 +34,7 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         when: 'enhanced method is applied'
         def hash = use( ByteArrayEnhancements ) { ->
-            data.toMd5String()
+            data.toMD5()
         }
 
         then: 'the expected digest is generated'
@@ -45,7 +45,7 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         when: 'enhanced method is applied'
         def hash = use( ByteArrayEnhancements ) { ->
-            data.toSha1String()
+            data.toSha1()
         }
 
         then: 'the expected digest is generated'
@@ -56,7 +56,7 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         when: 'enhanced method is applied'
         def hash = use( ByteArrayEnhancements ) { ->
-            data.toSha256String()
+            data.toSha256()
         }
 
         then: 'the expected digest is generated'
@@ -67,7 +67,7 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         when: 'enhanced method is applied'
         def hash = use( ByteArrayEnhancements ) { ->
-            data.toSha384String()
+            data.toSha384()
         }
 
         then: 'the expected digest is generated'
@@ -78,7 +78,7 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         when: 'enhanced method is applied'
         def hash = use( ByteArrayEnhancements ) { ->
-            data.toSha512String()
+            data.toSha512()
         }
 
         then: 'the expected digest is generated'

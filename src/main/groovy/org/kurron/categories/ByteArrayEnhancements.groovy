@@ -28,7 +28,7 @@ class ByteArrayEnhancements {
      * @param receiver the buffer to transform.
      * @return 32 character hex string of the hash.
      */
-    static String toMd5String( byte[] receiver ) {
+    static String toMD5( byte[] receiver ) {
         DigestUtils.md5Hex( receiver )
     }
 
@@ -37,7 +37,7 @@ class ByteArrayEnhancements {
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
-    static String toSha1String( byte[] receiver ) {
+    static String toSha1( byte[] receiver ) {
         DigestUtils.sha1Hex( receiver )
     }
 
@@ -46,7 +46,7 @@ class ByteArrayEnhancements {
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
-    static String toSha256String( byte[] receiver ) {
+    static String toSha256( byte[] receiver ) {
         DigestUtils.sha256Hex( receiver )
     }
 
@@ -55,7 +55,7 @@ class ByteArrayEnhancements {
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
-    static String toSha384String( byte[] receiver ) {
+    static String toSha384( byte[] receiver ) {
         DigestUtils.sha384Hex( receiver )
     }
 
@@ -64,7 +64,7 @@ class ByteArrayEnhancements {
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
-    static String toSha512String( byte[] receiver ) {
+    static String toSha512( byte[] receiver ) {
         DigestUtils.sha512Hex( receiver )
     }
 }
