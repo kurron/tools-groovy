@@ -28,9 +28,9 @@ import spock.lang.Unroll
 @Unroll
 class ByteArrayEnhancementsUnitTest extends Specification implements GenerationAbility {
 
+    def data = randomByteArray( 128 )
+
     def 'exercise MD5 string'() {
-        given: 'random data'
-        def data = randomByteArray( 128 )
 
         when: 'enhanced method is applied'
         def hash = use( ByteArrayEnhancements ) { ->
@@ -39,7 +39,16 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         then: 'the expected digest is generated'
         DigestUtils.md5Hex( data ) == hash
-
    }
 
+    def 'exercise SHA-1 string'() {
+
+        when: 'enhanced method is applied'
+        def hash = use( ByteArrayEnhancements ) { ->
+            data.toSha1String()
+        }
+
+        then: 'the expected digest is generated'
+        DigestUtils.sha1Hex( data ) == hash
+    }
 }

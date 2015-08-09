@@ -24,11 +24,20 @@ import org.apache.commons.codec.digest.DigestUtils
 class ByteArrayEnhancements {
 
     /**
-     * Transforms the byte array in a hex representation of the buffer's MD5 hast.
+     * Transforms the byte array in a hex representation of the buffer's MD5 hash.
      * @param receiver the buffer to transform.
      * @return 32 character hex string of the hash.
      */
     static String toMd5String( byte[] receiver ) {
         DigestUtils.md5Hex( receiver )
+    }
+
+    /**
+     * Transforms the byte array in a hex representation of the buffer's SHA-1 has1.
+     * @param receiver the buffer to transform.
+     * @return hex string of the hash.
+     */
+    static String toSha1String( byte[] receiver ) {
+        DigestUtils.sha1Hex( receiver )
     }
 }
