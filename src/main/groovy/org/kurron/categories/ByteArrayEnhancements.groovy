@@ -70,6 +70,16 @@ class ByteArrayEnhancements {
     }
 
     /**
+     * Transforms the byte array into a hex representation of the buffer's SHA-256 HMAC.
+     * @param receiver the buffer to transform.
+     * @param key the private key to use in the transformation.
+     * @return hex string of the HMAC.
+     */
+    static String toSha256Mac( byte[] receiver, byte[] key ) {
+        HmacUtils.hmacSha256Hex( key, receiver )
+    }
+
+    /**
      * Transforms the byte array into a hex representation of the buffer's SHA-384 HMAC.
      * @param receiver the buffer to transform.
      * @param key the private key to use in the transformation.

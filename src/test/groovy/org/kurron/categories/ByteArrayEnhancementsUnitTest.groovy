@@ -87,6 +87,17 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         DigestUtils.sha512Hex( data ) == hash
     }
 
+    def 'exercise SHA-256 HMAC'() {
+
+        when: 'enhanced method is applied'
+        def mac = use( ByteArrayEnhancements ) { ->
+            data.toSha256Mac( key )
+        }
+
+        then: 'the expected authentication code is generated'
+        HmacUtils.hmacSha256Hex( key, data ) == mac
+    }
+
     def 'exercise SHA-384 HMAC'() {
 
         when: 'enhanced method is applied'
