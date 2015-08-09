@@ -41,4 +41,15 @@ class StringEnhancementsUnitTest extends Specification implements GenerationAbil
         data.getBytes( StandardCharsets.UTF_8 ) == encoded
    }
 
+    def 'exercise UTF-16 encoding'() {
+
+        when: 'enhanced method is applied'
+        def encoded = use( StringEnhancements ) { ->
+            data.toUTF16()
+        }
+
+        then: 'the expected encoding is generated'
+        data.getBytes( StandardCharsets.UTF_16 ) == encoded
+    }
+
 }

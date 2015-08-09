@@ -32,4 +32,13 @@ class StringEnhancements {
         receiver.getBytes( StandardCharsets.UTF_8 )
     }
 
+    /**
+     * Transforms the string into its UTF-16 byte representation.
+     * @param receiver the instance to transform.
+     * @return the UTF-16 encoded bytes of the instance.
+     */
+    static byte[] toUTF16( String receiver ) {
+        receiver.getBytes( StandardCharsets.UTF_16 )
+    }
+
 }
