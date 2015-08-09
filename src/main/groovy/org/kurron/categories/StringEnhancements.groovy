@@ -27,7 +27,7 @@ class StringEnhancements {
      * @param receiver the instance to transform.
      * @return the UTF-8 encoded bytes of the instance.
      */
-    static byte[] toUTF8( String receiver ) {
+    static byte[] getUTF8( String receiver ) {
         receiver.getBytes( StandardCharsets.UTF_8 )
     }
 
@@ -36,7 +36,7 @@ class StringEnhancements {
      * @param receiver the instance to transform.
      * @return the UTF-16 encoded bytes of the instance.
      */
-    static byte[] toUTF16( String receiver ) {
+    static byte[] getUTF16( String receiver ) {
         receiver.getBytes( StandardCharsets.UTF_16 )
     }
 
