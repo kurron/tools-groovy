@@ -15,12 +15,11 @@
  */
 package org.kurron.traits
 
+import java.time.LocalDateTime
 import org.junit.experimental.categories.Category
 import org.kurron.categories.UnitTest
 import spock.lang.Specification
 import spock.lang.Unroll
-
-import java.time.LocalDateTime
 
 /**
  * Unit-level test.
@@ -57,7 +56,7 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         def buffers = sizes.collect { randomByteArray( it ) }.sort()
 
         then: 'each buffer is of the specified size'
-        def generatedSizes = buffers.collect { it.size() }.sort()
+        def generatedSizes = buffers*.size().sort()
         sizes.sort() == generatedSizes
     }
 
