@@ -33,11 +33,20 @@ class ByteArrayEnhancements {
     }
 
     /**
-     * Transforms the byte array in a hex representation of the buffer's SHA-1 has1.
+     * Transforms the byte array in a hex representation of the buffer's SHA-1 hash.
      * @param receiver the buffer to transform.
      * @return hex string of the hash.
      */
     static String toSha1String( byte[] receiver ) {
         DigestUtils.sha1Hex( receiver )
+    }
+
+    /**
+     * Transforms the byte array in a hex representation of the buffer's SHA-256 hash.
+     * @param receiver the buffer to transform.
+     * @return hex string of the hash.
+     */
+    static String toSha256String( byte[] receiver ) {
+        DigestUtils.sha256Hex( receiver )
     }
 }
