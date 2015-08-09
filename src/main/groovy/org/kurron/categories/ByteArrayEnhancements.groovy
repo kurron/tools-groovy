@@ -49,4 +49,13 @@ class ByteArrayEnhancements {
     static String toSha256String( byte[] receiver ) {
         DigestUtils.sha256Hex( receiver )
     }
+
+    /**
+     * Transforms the byte array in a hex representation of the buffer's SHA-512 hash.
+     * @param receiver the buffer to transform.
+     * @return hex string of the hash.
+     */
+    static String toSha512String( byte[] receiver ) {
+        DigestUtils.sha512Hex( receiver )
+    }
 }
