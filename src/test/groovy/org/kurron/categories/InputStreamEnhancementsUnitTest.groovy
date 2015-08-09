@@ -33,6 +33,11 @@ class InputStreamEnhancementsUnitTest extends Specification implements Generatio
     def stream = new ByteArrayInputStream( data )
     def key = randomByteArray( 128 )
 
+    def setup() {
+        // this is just help JaCoCo past some of the Groovy magic that goes on
+        new InputStreamEnhancements()
+    }
+
     def 'exercise MD5 string'() {
 
         when: 'enhanced method is applied'

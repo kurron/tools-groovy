@@ -32,6 +32,11 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
     def data = randomByteArray( 128 )
     def key = randomByteArray( 128 )
 
+    def setup() {
+        // this is just help JaCoCo past some of the Groovy magic that goes on
+        new ByteArrayEnhancements()
+    }
+
     def 'exercise MD5 string'() {
 
         when: 'enhanced method is applied'

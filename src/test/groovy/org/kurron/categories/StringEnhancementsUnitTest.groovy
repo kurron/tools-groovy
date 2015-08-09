@@ -30,6 +30,11 @@ class StringEnhancementsUnitTest extends Specification implements GenerationAbil
 
     def data = randomHexString()
 
+    def setup() {
+        // this is just help JaCoCo past some of the Groovy magic that goes on
+        new StringEnhancements()
+    }
+
     def 'exercise UTF-8 encoding'() {
 
         when: 'enhanced method is applied'
