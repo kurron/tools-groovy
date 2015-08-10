@@ -108,6 +108,15 @@ class ByteArrayEnhancements {
     }
 
     /**
+     * Fills the byte array with the specified value.
+     * @param receiver the buffer to transform.
+     * @param fillWith the value to fill the buffer with.
+     */
+    static void fill( byte[] receiver, byte fillWith ) {
+        Arrays.fill( receiver, fillWith )
+    }
+
+    /**
      * Transforms the byte array into a duplicate copy.
      * @param receiver the buffer to transform.
      * @return the duplicated buffer

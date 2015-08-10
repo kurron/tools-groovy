@@ -138,6 +138,20 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         data != beforeScramble
     }
 
+    def 'exercise filling'() {
+
+        when: 'enhanced method is applied'
+        def fill = randomByte()
+        def beforeFill = Arrays.copyOf( data, data.length )
+        use( ByteArrayEnhancements ) { ->
+            data.fill( fill )
+        }
+
+        then: 'the data is different after the scramble'
+        data.size() == beforeFill.size()
+        data != beforeFill
+    }
+
     def 'exercise copy'() {
 
         when: 'enhanced method is applied'

@@ -127,4 +127,12 @@ trait GenerationAbility {
     URI randomURI() {
         new URI( 'http', randomHexString(), randomHexString(), randomPositiveInteger(), "/${randomHexString()}", "key=${randomHexString()};x=1;y=2;z=3", randomHexString() )
     }
+
+    /**
+     * Generates a random byte value.
+     * @return randomized value.
+     */
+    byte randomByte() {
+        ThreadLocalRandom.current().nextInt()
+    }
 }
