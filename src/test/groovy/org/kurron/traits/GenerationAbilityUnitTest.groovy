@@ -119,4 +119,11 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         }
     }
 
+    def 'exercise random string'() {
+
+        expect: 'a string using the entire character set'
+        def size = randomInteger( 1, 256 )
+        def generated = randomString( size )
+        generated.size() == size
+    }
 }

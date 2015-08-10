@@ -17,6 +17,7 @@ package org.kurron.traits
 
 import java.time.LocalDateTime
 import java.util.concurrent.ThreadLocalRandom
+import org.apache.commons.lang3.RandomStringUtils
 
 /**
  * This trait gives an object the ability to generate random data.  Typically useful in tests but also applicable in
@@ -31,6 +32,15 @@ trait GenerationAbility {
      */
     String randomHexString() {
         Integer.toHexString( ThreadLocalRandom.current().nextInt( Integer.MAX_VALUE ) ).toUpperCase()
+    }
+
+    /**
+     * Generates a random string whose length is the number of characters specified.
+     * @param size how large of a string to make.
+     * @return the newly generated string
+     */
+    String randomString( int size ) {
+        RandomStringUtils.random( size )
     }
 
     /**
