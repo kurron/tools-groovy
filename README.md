@@ -16,14 +16,14 @@ class Foo implements GenerationAbility {
 }
 ```
 
-That's it!  Since it the helper is implemented as a trait, you are free to override an method implementation at
+That's it!  Since the helper is implemented as a trait, you are free to override a method implementation at
 will.  Try that with `@Delegate`!
 
 ##Type Enhancers##
 Many time we use libraries that contain static helper methods to perform common tasks.  Using Groovy's Category
-mechanism, we've enhanced some of the built in types will nice helper routines.  Simply including the `tools-groovy`
-JAR in your classpath is enough to activate all of the enhancements.  Here are few examples of the methods we've
-added:
+mechanism, we've enhanced some of the built in types will nice helper routines which means you no longer have to seek
+out helper libraries.  Simply including the `tools-groovy` JAR in your classpath is enough to activate all of the
+enhancements.  Here are few examples of the methods we've added:
 
 ```
 byte[] buffer = 'some string'.UTF8
