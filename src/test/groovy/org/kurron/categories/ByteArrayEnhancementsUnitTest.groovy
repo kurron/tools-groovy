@@ -137,4 +137,15 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         data.size() == beforeScramble.size()
         data != beforeScramble
     }
+
+    def 'exercise copy'() {
+
+        when: 'enhanced method is applied'
+        def clone = use( ByteArrayEnhancements ) { ->
+            data.copy()
+        }
+
+        then: 'the two buffers are identical'
+        data == clone
+    }
 }

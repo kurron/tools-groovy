@@ -101,9 +101,18 @@ class ByteArrayEnhancements {
 
     /**
      * Transforms the byte array into a collection of randomized bytes.
-     * @param receiver the buffer to transform.d
+     * @param receiver the buffer to transform.
      */
     static void scramble( byte[] receiver ) {
         ThreadLocalRandom.current().nextBytes( receiver )
+    }
+
+    /**
+     * Transforms the byte array into a duplicate copy.
+     * @param receiver the buffer to transform.
+     * @return the duplicated buffer
+     */
+    static byte[] copy( byte[] receiver ) {
+        Arrays.copyOf( receiver, receiver.length )
     }
 }
