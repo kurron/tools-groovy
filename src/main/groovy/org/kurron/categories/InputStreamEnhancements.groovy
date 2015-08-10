@@ -27,7 +27,7 @@ class InputStreamEnhancements {
     /**
      * The buffer size to use if the caller does not provide a buffer to use.
      */
-    private static final BUFFER_SIZE = 1024 * 1
+    private static final BUFFER_SIZE = 1024 * 4
 
     /**
      * Transforms the stream into a hex representation of the stream's MD5 hash.
