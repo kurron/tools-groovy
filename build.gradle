@@ -32,6 +32,7 @@ apply from: "$rootDir/gradle/conflicts.gradle"
 dependencies {
     compile "commons-codec:commons-codec:${commonsCodecVersion}"
     compile "commons-io:commons-io:${commonsIoVersion}"
+    compile "org.apache.commons:commons-lang3:${commonsLangVersion}"
     compile "org.codehaus.groovy:groovy-all:${groovyVersion}:indy"
     compile "org.kurron:tools-java:${toolsJavaVersion}"
 }
