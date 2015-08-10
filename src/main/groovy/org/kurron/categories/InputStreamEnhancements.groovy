@@ -114,5 +114,13 @@ class InputStreamEnhancements {
         IOUtils.copyLarge( receiver, destination, buffer )
     }
 
+    /**
+     * Transforms the stream into a byte array.
+     * @param receiver the buffer to transform.
+     * @return the bytes read from the stream.
+     */
+    static byte[] toByteArray( InputStream receiver ) {
+        IOUtils.toByteArray( receiver )
+    }
 
 }

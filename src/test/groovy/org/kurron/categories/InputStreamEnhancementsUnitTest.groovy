@@ -152,4 +152,17 @@ class InputStreamEnhancementsUnitTest extends Specification implements Generatio
         copied == data.size() as long
         destination.toByteArray() == data
     }
+
+    def 'exercise to byte array'() {
+
+        when: 'enhanced method is applied'
+        def copied = use( InputStreamEnhancements ) { ->
+            stream.toByteArray()
+        }
+
+        then: 'the expected bytes are copied'
+        copied.size() == data.size()
+        copied == data
+    }
+
 }
