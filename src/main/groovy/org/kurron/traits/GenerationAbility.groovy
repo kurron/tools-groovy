@@ -22,7 +22,7 @@ import org.apache.commons.lang3.RandomStringUtils
 /**
  * This trait gives an object the ability to generate random data.  Typically useful in tests but also applicable in
  * production code.  The use of traits removes the need to use inheritance and, in some instances, provides a better
- * alt
+ * alternative.
  */
 trait GenerationAbility {
 
