@@ -31,4 +31,13 @@ class ThrowableEnhancements {
         ExceptionUtils.getRootCause( receiver )
     }
 
+    /**
+     * Returns the list of Throwable objects in the exception chain.
+     * @param receiver the instance to transform.
+     * @return the list of throwables, never null.
+     */
+    static List<Throwable> toList( Throwable receiver ) {
+        ExceptionUtils.getThrowableList( receiver )
+    }
+
 }

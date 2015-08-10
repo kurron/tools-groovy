@@ -47,4 +47,16 @@ class ThrowableEnhancementsUnitTest extends Specification implements GenerationA
         rootCause == c
    }
 
+    def 'exercise to list'() {
+
+        when: 'enhanced method is applied'
+        def throwables = use( ThrowableEnhancements ) { ->
+            a.toList()
+        }
+
+        then: 'the expected exceptions are returned'
+        throwables.size() == 3
+        [a, b, c].every { it in throwables }
+    }
+
 }
