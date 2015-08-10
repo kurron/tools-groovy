@@ -26,7 +26,7 @@ out helper libraries.  Simply including the `tools-groovy` JAR in your classpath
 enhancements.  Here are few examples of the methods we've added:
 
 ```
-byte[] buffer = 'some string'.UTF8
+byte[] buffer = 'some string'.utf8Bytes
 byte[] clone = existingByteArray.copy()
 String hash = existingByteArray.toMD5()
 String hash = anInputStream.toMD5()
