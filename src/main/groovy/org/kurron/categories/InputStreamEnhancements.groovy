@@ -25,6 +25,11 @@ import org.apache.commons.io.IOUtils
 class InputStreamEnhancements {
 
     /**
+     * The buffer size to use if the caller does not provide a buffer to use.
+     */
+    private static final BUFFER_SIZE = 1024 * 1
+
+    /**
      * Transforms the stream into a hex representation of the stream's MD5 hash.
      * @param receiver the stream to transform.
      * @return 32 character hex string of the hash.
@@ -105,8 +110,8 @@ class InputStreamEnhancements {
      * @param destination the buffer to copy to.
      * @return the number of bytes that were transferred.
      */
-    static long copy( InputStream receiver, OutputStream destination ) {
-        IOUtils.copyLarge( receiver, destination )
+    static long copy( InputStream receiver, OutputStream destination, byte[] buffer = new byte[BUFFER_SIZE] ) {
+        IOUtils.copyLarge( receiver, destination, buffer )
     }
 
 
