@@ -44,6 +44,16 @@ trait GenerationAbility {
     }
 
     /**
+     * Generates a random string whose length is the number of characters specified.
+     * @param size how large of a string to make.
+     * @param source the source of characters to generate the new string from.
+     * @return the newly generated string
+     */
+    String randomString( int size, String source ) {
+        RandomStringUtils.random( size, source )
+    }
+
+    /**
      * Generates a random integer between 0 (inclusive) and Integer.MAX_VALUE (exclusive).
      * @return random integer.
      */

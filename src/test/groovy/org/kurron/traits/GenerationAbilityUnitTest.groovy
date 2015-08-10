@@ -126,4 +126,14 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         def generated = randomString( size )
         generated.size() == size
     }
+
+    def 'exercise restricted random string'() {
+
+        expect: 'a string using a restricted character set'
+        def size = randomInteger( 1, 16 )
+        def source = 'ABC'
+        def generated = randomString( size, source )
+        generated.size() == size
+        generated.every { source.contains( it ) }
+    }
 }
