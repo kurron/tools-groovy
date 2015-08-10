@@ -124,4 +124,15 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         then: 'the expected authentication code is generated'
         HmacUtils.hmacSha512Hex( key, data ) == mac
     }
+
+    def 'exercise scrambling'() {
+
+        when: 'enhanced method is applied'
+        def beforeScramble = Arrays.copyOf( data, data.length )
+        data.scramble()
+
+        then: 'the data is different after the scramble'
+        data.size() == beforeScramble.size()
+        data != beforeScramble
+    }
 }

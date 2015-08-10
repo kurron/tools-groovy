@@ -15,6 +15,7 @@
  */
 package org.kurron.categories
 
+import java.util.concurrent.ThreadLocalRandom
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.codec.digest.HmacUtils
 
@@ -96,5 +97,13 @@ class ByteArrayEnhancements {
      */
     static String toSha512Mac( byte[] receiver, byte[] key ) {
         HmacUtils.hmacSha512Hex( key, receiver )
+    }
+
+    /**
+     * Transforms the byte array into a collection of randomized bytes.
+     * @param receiver the buffer to transform.d
+     */
+    static void scramble( byte[] receiver ) {
+        ThreadLocalRandom.current().nextBytes( receiver )
     }
 }
