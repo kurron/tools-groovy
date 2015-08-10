@@ -39,7 +39,7 @@ class StringEnhancementsUnitTest extends Specification implements GenerationAbil
 
         when: 'enhanced method is applied'
         def encoded = use( StringEnhancements ) { ->
-            data.UTF8
+            data.utf8Bytes
         }
 
         then: 'the expected encoding is generated'
@@ -50,7 +50,7 @@ class StringEnhancementsUnitTest extends Specification implements GenerationAbil
 
         when: 'enhanced method is applied'
         def encoded = use( StringEnhancements ) { ->
-            data.UTF16
+            data.utf16Bytes
         }
 
         then: 'the expected encoding is generated'
