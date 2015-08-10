@@ -17,6 +17,7 @@ package org.kurron.categories
 
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.codec.digest.HmacUtils
+import org.apache.commons.io.IOUtils
 
 /**
  * Convenience methods that can be added to any input stream.
@@ -97,4 +98,16 @@ class InputStreamEnhancements {
     static String toSha512Mac( InputStream receiver, byte[] key ) {
         HmacUtils.hmacSha512Hex( key, receiver )
     }
+
+    /**
+     * Copies the bytes from the input stream to the output stream.  WARNING: intended for
+     * streams that are 2 GB or less in size.
+     * @param receiver the buffer to transform.
+     * @param destination the buffer to copy to.
+     * @return the number of bytes that were transferred.
+     */
+    static int copy( InputStream receiver, OutputStream destination ) {
+        IOUtils.copy( receiver, destination )
+    }
+
 }

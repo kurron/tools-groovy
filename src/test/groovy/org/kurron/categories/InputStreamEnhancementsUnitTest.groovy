@@ -125,4 +125,17 @@ class InputStreamEnhancementsUnitTest extends Specification implements Generatio
         then: 'the expected authentication code is generated'
         HmacUtils.hmacSha512Hex( key, data ) == mac
     }
+
+    def 'exercise copy'() {
+
+        when: 'enhanced method is applied'
+        def destination = new ByteArrayOutputStream( data.size() )
+        def copied = use( InputStreamEnhancements ) { ->
+            stream.copy( destination )
+        }
+
+        then: 'the expected bytes are copied'
+        copied == data.size()
+        destination.toByteArray() == data
+    }
 }
