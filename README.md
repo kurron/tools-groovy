@@ -3,7 +3,7 @@ This is a simple library that takes leverages some of the features found in Groo
 commonly applied patterns and logic in a non-intrusive way.  The tests contain the most up-to-date examples but here
 are a few highlights.
 
-##GenerationAbility##
+##Data Generation Ability##
 Sometimes you need to generate random data sets, especially during testing, and the `GenerationAbility` trait can
 help.  Using it is very simple:
 
