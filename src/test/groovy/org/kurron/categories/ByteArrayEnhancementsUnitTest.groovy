@@ -129,7 +129,9 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
 
         when: 'enhanced method is applied'
         def beforeScramble = Arrays.copyOf( data, data.length )
-        data.scramble()
+        use( ByteArrayEnhancements ) { ->
+            data.scramble()
+        }
 
         then: 'the data is different after the scramble'
         data.size() == beforeScramble.size()
