@@ -162,4 +162,18 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         then: 'the two buffers are identical'
         data == clone
     }
+
+    def 'exercise UTF-8 string'() {
+
+        given: 'string as bytes'
+        def from = randomHexString()
+
+        when: 'enhanced method is applied'
+        def to = use( ByteArrayEnhancements ) { ->
+            from.utf8Bytes.toStringUtf8()
+        }
+
+        then: 'the two strings are equal'
+        to == from
+    }
 }

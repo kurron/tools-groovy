@@ -16,6 +16,7 @@
 package org.kurron.categories
 
 import java.util.concurrent.ThreadLocalRandom
+import org.apache.commons.codec.binary.StringUtils
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.codec.digest.HmacUtils
 
@@ -123,5 +124,14 @@ class ByteArrayEnhancements {
      */
     static byte[] copy( byte[] receiver ) {
         Arrays.copyOf( receiver, receiver.length )
+    }
+
+    /**
+     * Transforms the UTF-8 byte array into a string.
+     * @param receiver the buffer to transform.
+     * @return the newly created string.
+     */
+    static String toStringUtf8( byte[] receiver ) {
+        StringUtils.newStringUtf8( receiver )
     }
 }
