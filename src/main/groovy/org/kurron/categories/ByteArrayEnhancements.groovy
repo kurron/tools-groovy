@@ -134,4 +134,13 @@ class ByteArrayEnhancements {
     static String toStringUtf8( byte[] receiver ) {
         StringUtils.newStringUtf8( receiver )
     }
+
+    /**
+     * Transforms the UTF-16 byte array into a string.
+     * @param receiver the buffer to transform.
+     * @return the newly created string.
+     */
+    static String toStringUtf16( byte[] receiver ) {
+        StringUtils.newStringUtf16( receiver )
+    }
 }

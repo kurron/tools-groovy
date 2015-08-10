@@ -176,4 +176,18 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         then: 'the two strings are equal'
         to == from
     }
+
+    def 'exercise UTF-16 string'() {
+
+        given: 'string as bytes'
+        def from = randomHexString()
+
+        when: 'enhanced method is applied'
+        def to = use( ByteArrayEnhancements ) { ->
+            from.utf16Bytes.toStringUtf16()
+        }
+
+        then: 'the two strings are equal'
+        to == from
+    }
 }
