@@ -40,7 +40,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a hex representation of the stream's SHA-1 hash.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @return hex string of the hash.
      */
     static String toSha1( InputStream receiver ) {
@@ -49,7 +49,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a hex representation of the stream's SHA-256 hash.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @return hex string of the hash.
      */
     static String toSha256( InputStream receiver ) {
@@ -58,7 +58,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a hex representation of the stream's SHA-384 hash.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @return hex string of the hash.
      */
     static String toSha384( InputStream receiver ) {
@@ -67,7 +67,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a hex representation of the stream's SHA-512 hash.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @return hex string of the hash.
      */
     static String toSha512( InputStream receiver ) {
@@ -76,7 +76,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a hex representation of the stream's SHA-256 HMAC.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @param key the private key to use in the transformation.
      * @return hex string of the HMAC.
      */
@@ -86,7 +86,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a hex representation of the stream's SHA-384 HMAC.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @param key the private key to use in the transformation.
      * @return hex string of the HMAC.
      */
@@ -96,7 +96,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a hex representation of the stream's SHA-512 HMAC.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @param key the private key to use in the transformation.
      * @return hex string of the HMAC.
      */
@@ -106,8 +106,8 @@ class InputStreamEnhancements {
 
     /**
      * Copies the bytes from the input stream to the output stream.
-     * @param receiver the buffer to transform.
-     * @param destination the buffer to copy to.
+     * @param receiver the stream to transform.
+     * @param destination the stream to copy to.
      * @return the number of bytes that were transferred.
      */
     static long copy( InputStream receiver, OutputStream destination, byte[] buffer = new byte[BUFFER_SIZE] ) {
@@ -116,7 +116,7 @@ class InputStreamEnhancements {
 
     /**
      * Transforms the stream into a byte array.
-     * @param receiver the buffer to transform.
+     * @param receiver the stream to transform.
      * @return the bytes read from the stream.
      */
     static byte[] toByteArray( InputStream receiver ) {
