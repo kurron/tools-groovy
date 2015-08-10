@@ -135,7 +135,7 @@ class InputStreamEnhancementsUnitTest extends Specification implements Generatio
         }
 
         then: 'the expected bytes are copied'
-        copied == data.size()
+        copied == data.size() as long
         destination.toByteArray() == data
     }
 }

@@ -100,14 +100,14 @@ class InputStreamEnhancements {
     }
 
     /**
-     * Copies the bytes from the input stream to the output stream.  WARNING: intended for
-     * streams that are 2 GB or less in size.
+     * Copies the bytes from the input stream to the output stream.
      * @param receiver the buffer to transform.
      * @param destination the buffer to copy to.
      * @return the number of bytes that were transferred.
      */
-    static int copy( InputStream receiver, OutputStream destination ) {
-        IOUtils.copy( receiver, destination )
+    static long copy( InputStream receiver, OutputStream destination ) {
+        IOUtils.copyLarge( receiver, destination )
     }
+
 
 }
