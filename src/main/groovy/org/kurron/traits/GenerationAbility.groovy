@@ -120,6 +120,10 @@ trait GenerationAbility {
         direction == Direction.FUTURE ? now.plusDays( offset ) : now.minusDays( offset )
     }
 
+    /**
+     * Generates a randomized HTTP-based URI complete including query parameters and matrix variables.
+     * @return randomized URI.
+     */
     URI randomURI() {
         new URI( 'http', randomHexString(), randomHexString(), randomPositiveInteger(), "/${randomHexString()}", "key=${randomHexString()};x=1;y=2;z=3", randomHexString() )
     }
