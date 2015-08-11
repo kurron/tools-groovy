@@ -15,10 +15,11 @@
  */
 package org.kurron.categories
 
-import java.util.concurrent.ThreadLocalRandom
 import org.apache.commons.codec.binary.StringUtils
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.codec.digest.HmacUtils
+
+import java.util.concurrent.ThreadLocalRandom
 
 /**
  * Convenience methods that can be added to any byte array.
@@ -142,5 +143,14 @@ class ByteArrayEnhancements {
      */
     static String toStringUtf16( byte[] receiver ) {
         StringUtils.newStringUtf16( receiver )
+    }
+
+    /**
+     * Transforms the byte array into a Base 64 encoded string.
+     * @param receiver the buffer to transform.
+     * @return the newly created string.
+     */
+    static String toStringBase64( byte[] receiver ) {
+        receiver.encodeBase64().toString()
     }
 }

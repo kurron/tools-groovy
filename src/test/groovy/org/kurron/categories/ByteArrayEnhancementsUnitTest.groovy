@@ -190,4 +190,15 @@ class ByteArrayEnhancementsUnitTest extends Specification implements GenerationA
         then: 'the two strings are equal'
         to == from
     }
+
+    def 'exercise Base 64 string'() {
+
+        when: 'enhanced method is applied'
+        def encoded = use( ByteArrayEnhancements ) { ->
+            data.toStringBase64()
+        }
+
+        then: 'the two strings are equal'
+        encoded == data.encodeBase64().toString()
+    }
 }
