@@ -20,9 +20,7 @@ publishing {
     publications {
         mavenPublish( MavenPublication ) {
             from components.java
-            groupId 'org.kurron'
-            artifactId 'tools-groovy'
-            version project.version
+            artifact sourcesJar
         }
     }
 
