@@ -30,36 +30,14 @@ apply plugin: 'build-announcements'
 
 apply from: "$rootDir/gradle/repositories.gradle"
 apply from: "$rootDir/gradle/version.gradle"
-apply from: "$rootDir/gradle/maven-publish.gradle"
 apply from: "$rootDir/gradle/groovy.gradle"
 apply from: "$rootDir/gradle/spock.gradle"
 apply from: "$rootDir/gradle/codenarc.gradle"
 apply from: "$rootDir/gradle/jacoco.gradle"
 apply from: "$rootDir/gradle/dependency-exclusions.gradle"
 apply from: "$rootDir/gradle/conflicts.gradle"
-
-bintray {
-    user = 'kurron'
-    key = System.getenv( 'BINTRAY_KEY' )
-    publications = ['mavenPublish']
-    pkg {
-        repo = 'maven'
-        name = 'groovy-tools'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/kurron/tools-groovy.git'
-        labels = ['gear', 'gore', 'gorilla']
-        publicDownloadNumbers = true
-        attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee']
-        version {
-            name = project.version
-            desc = 'Groovy-based utilities and enhancements'
-            released  = new Date()
-            vcsTag = 'master'
-            attributes = ['key': 'value']
-        }
-    }
-}
-
+apply from: "$rootDir/gradle/maven-publish.gradle"
+apply from: "$rootDir/gradle/bintray.gradle"
 
 dependencies {
     compile "commons-codec:commons-codec:${commonsCodecVersion}"
