@@ -14,20 +14,53 @@
  * limitations under the License.
  */
 
-group = 'org.kurron.example'
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
 
+plugins {
+    id "com.jfrog.bintray" version "1.2"
+}
+
+group = 'org.kurron.example'
 
 apply plugin: 'build-announcements'
 
 apply from: "$rootDir/gradle/repositories.gradle"
 apply from: "$rootDir/gradle/version.gradle"
+apply from: "$rootDir/gradle/maven.gradle"
 apply from: "$rootDir/gradle/groovy.gradle"
 apply from: "$rootDir/gradle/spock.gradle"
 apply from: "$rootDir/gradle/codenarc.gradle"
 apply from: "$rootDir/gradle/jacoco.gradle"
-apply from: "$rootDir/gradle/maven-publish.gradle"
 apply from: "$rootDir/gradle/dependency-exclusions.gradle"
 apply from: "$rootDir/gradle/conflicts.gradle"
+
+bintray {
+    user = 'kurron'
+    key = System.getenv( 'BINTRAY_KEY' )
+    publications = ['mavenPublish']
+    pkg {
+        repo = 'maven'
+        name = 'groovy-tools'
+        userOrg = 'kurron'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/kurron/tools-groovy'
+        labels = ['gear', 'gore', 'gorilla']
+        publicDownloadNumbers = true
+        attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee']
+        version {
+            name = project.version
+            desc = 'Plugin test'
+            released  = new Date()
+            vcsTag = 'master'
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+    }
+}
+
 
 dependencies {
     compile "commons-codec:commons-codec:${commonsCodecVersion}"
