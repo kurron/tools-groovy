@@ -24,7 +24,7 @@ plugins {
     id "com.jfrog.bintray" version "1.2"
 }
 
-group = 'org.kurron.example'
+group = 'org.kurron'
 
 apply plugin: 'build-announcements'
 
