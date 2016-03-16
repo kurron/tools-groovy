@@ -18,7 +18,7 @@ package org.kurron.categories
 import org.apache.commons.lang3.exception.ExceptionUtils
 
 /**
- * Convenience methods that can be added to any Thowable.
+ * Convenience methods that can be added to any Throwable.
  */
 class ThrowableEnhancements {
 
