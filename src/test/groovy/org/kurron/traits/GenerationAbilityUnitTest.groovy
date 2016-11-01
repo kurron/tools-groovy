@@ -16,6 +16,7 @@
 package org.kurron.traits
 
 import java.time.LocalDateTime
+import java.util.concurrent.TimeUnit
 import org.junit.experimental.categories.Category
 import org.kurron.categories.UnitTest
 import spock.lang.Specification
@@ -135,5 +136,16 @@ class GenerationAbilityUnitTest extends Specification implements GenerationAbili
         def generated = randomString( size, source )
         generated.size() == size
         generated.every { source.contains( it ) }
+    }
+
+    def 'exercise random time duration'() {
+        when: 'the collection of random time durations are generated'
+        def generated = ( 1..10 ).collect { randomTimeDuration() }
+
+        then: 'the generated values are unique and in the expected range'
+        generated.unique( false ) == generated
+        generated.each {
+            assert it > 0 && it < TimeUnit.HOURS.toMillis( 25 )
+        }
     }
 }

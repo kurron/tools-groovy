@@ -17,6 +17,7 @@ package org.kurron.traits
 
 import java.time.LocalDateTime
 import java.util.concurrent.ThreadLocalRandom
+import java.util.concurrent.TimeUnit
 import org.apache.commons.lang3.RandomStringUtils
 
 /**
@@ -154,5 +155,14 @@ trait GenerationAbility {
      */
     byte randomByte() {
         ThreadLocalRandom.current().nextInt()
+    }
+
+    /**
+     * Generated a random time duration value.
+     * @return randomized value.
+     */
+    @SuppressWarnings( 'DuplicateNumberLiteral' )
+    long randomTimeDuration() {
+        TimeUnit.HOURS.toMillis( randomInteger( 0, 23 ) ) + TimeUnit.MINUTES.toMillis( randomInteger( 0, 60 ) ) + TimeUnit.SECONDS.toMillis( randomInteger( 0, 60 ) )
     }
 }
