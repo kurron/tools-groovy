@@ -23,15 +23,12 @@ bintray {
         name = 'groovy-tools'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/kurron/tools-groovy.git'
-        labels = ['gear', 'gore', 'gorilla']
+        labels = ['groovy', 'spring', 'tools']
         publicDownloadNumbers = true
-        attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee']
         version {
             name = project.version
-            desc = 'Groovy-based utilities and enhancements'
             released  = new Date()
-            vcsTag = 'master'
-            attributes = ['key': 'value']
         }
     }
 }
+

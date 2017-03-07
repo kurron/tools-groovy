@@ -18,31 +18,8 @@ apply plugin: 'maven-publish'
 publishing {
     publications {
         mavenPublish( MavenPublication ) {
-            if ( project.plugins.hasPlugin( WarPlugin ) ) {
-                from components.web
-            }
-            else {
-                from components.java
-            }
+            from components.java
             artifact sourcesJar
-        }
-    }
-
-    repositories {
-        maven {
-            if ( 'master' == branch ) {
-                url = releaseURL
-            }
-            else if ( 'development' == branch ) {
-                url = milestoneURL
-            }
-            else {
-                url='Not set - only master and development branches should be published!'
-            }
-            credentials {
-                username = publishUsername
-                password = publishPassword
-            }
         }
     }
 }
