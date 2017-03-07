@@ -16,12 +16,14 @@
 
 buildscript {
     repositories {
-        jcenter()
+        maven {
+            url = artifactory
+        }
     }
 }
 
 plugins {
-    id "com.jfrog.bintray" version "1.2"
+    id "com.jfrog.bintray" version "1.7.3"
 }
 
 group = 'org.kurron'
@@ -52,6 +54,7 @@ ext.coverageExcludes = []
 defaultTasks += ['clean', 'build']
 
 if ( 'true' == publishArtifacts ) {
+    defaultTasks << 'bintrayUpload'
     defaultTasks << 'publish'
 }
 else {
